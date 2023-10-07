@@ -1,0 +1,60 @@
+// data 
+let totalGems = randomNumberOfGems
+var totalsum = 0
+var firststage = 0
+var secondstage = 1
+bluePortal.isActive = false
+pinkPortal.isActive = false
+// data_end
+
+// functions
+func gemCollect_1() {
+    collectGem()
+    totalsum += 1
+}
+func moveR() {
+    if isBlockedRight {
+           if isOnGem {
+               gemCollect_1()
+               
+           }
+           
+
+           moveForward()
+       
+       } else {
+           turnRight()
+           moveForward()
+       }
+    
+}
+
+// functions_end
+
+
+//solution
+
+while totalsum != totalGems {
+    if isBlocked && isBlockedRight && isBlockedLeft {
+           turnLeft()
+           turnLeft()
+           firststage += 1
+       }  
+    if firststage == 2 {
+            pinkPortal.isActive = true
+        }
+    if firststage == 3 {
+            pinkPortal.isActive = false
+        }
+    if firststage == 4 {
+                pinkPortal.isActive = true
+            }
+    if firststage == 5 {
+                  bluePortal.isActive = true
+              }
+    if firststage == 7 {
+                  bluePortal.isActive = false
+              }
+   moveR()
+}
+//solution_end
